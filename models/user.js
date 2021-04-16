@@ -9,7 +9,6 @@ const mongoose = require('mongoose'),
             type: String,
             required: true
         }
-    }),
-    modelInstance = mongoose.model(modelName, schemaDefinition);
+    });
 
-module.exports = modelInstance;
+module.exports = mongoose.model(modelName, schemaDefinition);

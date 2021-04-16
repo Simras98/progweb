@@ -1,22 +1,58 @@
 // Convert model to object and delete __v field
-const format = function (object) {
+const formatGeneric = function (object) {
     if(object.length === 0){
         return object;
     }
     object = object.toObject();
     delete object.__v;
+    object.id = object._id;
+    delete object._id;
+    if(object.firstName === undefined) {
+        object = formatFieldsBook(object);
+    } else {
+        object = formatFieldsAuthor(object);
+    }
     return object;
 };
 
+const formatFieldsAuthor = function (object) {
+    const firstName = object.firstName;
+    delete object.firstName;
+    object.firstName = firstName;
+    const lastName = object.lastName;
+    delete object.lastName;
+    object.lastName = lastName;
+    return object;
+}
+
+const formatFieldsBook = function (object) {
+    const title = object.title;
+    delete object.title;
+    object.title = title;
+    const category = object.category;
+    delete object.category;
+    object.category = category;
+    const year = object.year;
+    delete object.year;
+    object.year = year;
+    const pageCount = object.pageCount;
+    delete object.pageCount;
+    object.pageCount = pageCount;
+    const author = object.author;
+    delete object.author;
+    object.author = author;
+    return object;
+}
+
 // Convert book model to book object
 const formatBook = function (book) {
-    book = format(book);
+    book = formatGeneric(book);
     return book;
 };
 
 // Convert author model to author object
 const formatAuthor = function (author, books) {
-    author = format(author);
+    author = formatGeneric(author);
     if(books === undefined) {
         return author;
     }
@@ -29,16 +65,15 @@ const formatBooks = function (books) {
     if(books.length === 0) {
         return books;
     }
-    let finalBooks = {};
     let formattedBooks = [];
     for (let book of books) {
-        book = book.toObject();
-        delete book.__v;
+        book = formatGeneric(book);
         formattedBooks.push(book);
     }
-    finalBooks['size'] = formattedBooks.length;
-    finalBooks['list'] = formattedBooks;
-    return finalBooks;
+    return {
+        size: formattedBooks.length,
+        list: formattedBooks
+    };
 };
 
 // Convert authors model to authors object and adding specs fields
@@ -46,10 +81,10 @@ const formatAuthors = function (authors) {
     if(authors.length === 0){
         return authors;
     }
-    let finalAuthors = {};
-    finalAuthors['size'] = authors.length;
-    finalAuthors['list'] = authors;
-    return finalAuthors;
+    return {
+        size: authors.length,
+        list: authors
+    };
 };
 
 // Export functions
