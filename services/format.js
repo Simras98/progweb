@@ -1,13 +1,13 @@
 // Convert model to object and delete __v field
 const formatGeneric = function (object) {
-    if(object.length === 0){
+    if (object.length === 0) {
         return object;
     }
     object = object.toObject();
     delete object.__v;
     object.id = object._id;
     delete object._id;
-    if(object.firstName === undefined) {
+    if (object.firstName === undefined) {
         object = formatFieldsBook(object);
     } else {
         object = formatFieldsAuthor(object);
@@ -53,7 +53,7 @@ const formatBook = function (book) {
 // Convert author model to author object
 const formatAuthor = function (author, books) {
     author = formatGeneric(author);
-    if(books === undefined) {
+    if (books === undefined) {
         return author;
     }
     author.books = formatBooks(books);
@@ -62,7 +62,7 @@ const formatAuthor = function (author, books) {
 
 // Convert books model to authors object and adding specs fields
 const formatBooks = function (books) {
-    if(books.length === 0) {
+    if (books.length === 0) {
         return books;
     }
     let formattedBooks = [];
@@ -78,7 +78,7 @@ const formatBooks = function (books) {
 
 // Convert authors model to authors object and adding specs fields
 const formatAuthors = function (authors) {
-    if(authors.length === 0){
+    if (authors.length === 0) {
         return authors;
     }
     return {
@@ -90,7 +90,7 @@ const formatAuthors = function (authors) {
 // Export functions
 module.exports = {
     formatBook: formatBook,
-    formatBooks:formatBooks,
+    formatBooks: formatBooks,
     formatAuthor: formatAuthor,
     formatAuthors: formatAuthors
 };

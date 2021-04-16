@@ -8,7 +8,7 @@ const app = require("../server"),
     Response = OAuth2Server.Response;
 
 app.oauth = new OAuth2Server({
-    model: require('../services/auth'),
+    model: require('./oauth2'),
     accessTokenLifetime: 60 * 60,
     allowBearerTokensInQueryString: true
 });
@@ -159,7 +159,7 @@ const authenticateRequest = function (req, res, next) {
 
 // Export functions
 module.exports = {
-    authenticateRequest:authenticateRequest,
+    authenticateRequest: authenticateRequest,
     createToken: createToken,
     getAccessToken: getAccessToken,
     getClient: getClient,

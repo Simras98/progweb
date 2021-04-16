@@ -1,5 +1,5 @@
 // Import dependencies
-const auth = require('./services/auth'),
+const auth = require('./services/oauth2'),
     bodyParser = require('body-parser'),
     express = require('express'),
     fs = require('fs'),
@@ -9,7 +9,7 @@ const auth = require('./services/auth'),
 
 // Import routes
 const
-    authRouter = require('./routes/auth'),
+    authRouter = require('./routes/oauth2'),
     authorRouter = require('./routes/author'),
     bookRouter = require('./routes/book');
 

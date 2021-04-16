@@ -8,7 +8,7 @@ const app = require("../server"),
 
 // Start the OAuth2 server
 app.oauth = new OAuth2Server({
-    model: require('../services/auth'),
+    model: require('../services/oauth2'),
     accessTokenLifetime: 60 * 60,
     allowBearerTokensInQueryString: true
 });
