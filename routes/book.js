@@ -1,13 +1,20 @@
 // Import dependencies
-const Book = require('../models/book'),
+const Author = require('../models/author'),
+    Book = require('../models/book'),
     express = require('express'),
     format = require('../services/format'),
     router = express.Router();
 
 // Create new book
 router.post('/new', async (req, res) => {
+    const {title, category, year, pageCount, author} = req.body;
     try {
-        const {title, category, year, pageCount, author} = req.body;
+        await Author.findById(author);
+    } catch {
+        res.status(500);
+        return res.json({error: 'Can not creat book, author does not exist'});
+    }
+    try {
         const book = new Book({
             title: title,
             category: category,
@@ -57,7 +64,7 @@ router.put('/search', async (req, res) => {
             query = query.regex('category', new RegExp(category, 'i'));
         }
         if (year) {
-            if(filterYear) {
+            if (filterYear) {
                 if (filterYear === 'before') {
                     query = query.lt('year', year);
                 }
@@ -68,7 +75,7 @@ router.put('/search', async (req, res) => {
                     query = query.gt('year', year);
                 }
             } else {
-                    query = query.lte('year', year);
+                query = query.lte('year', year);
             }
         }
         if (pageCount && filterPageCount) {
