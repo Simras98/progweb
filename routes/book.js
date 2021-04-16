@@ -6,7 +6,7 @@ const Author = require('../models/author'),
     router = express.Router();
 
 // Create new book
-router.post('/new', async (req, res) => {
+router.put('/new', async (req, res) => {
     const {title, category, year, pageCount, author} = req.body;
     try {
         await Author.findById(author);
@@ -53,7 +53,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Search books with parameters
-router.put('/search', async (req, res) => {
+router.post('/search', async (req, res) => {
     try {
         const {title, category, year, filterYear, pageCount, filterPageCount, author} = req.body;
         let query = Book.find();

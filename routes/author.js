@@ -6,7 +6,7 @@ const Author = require('../models/author'),
     router = express.Router();
 
 // Create new author
-router.post('/new', async (req, res) => {
+router.put('/new', async (req, res) => {
     try {
         const author = new Author({
             firstName: req.body.firstName,
@@ -51,7 +51,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Search authors with parameters
-router.put('/search', async (req, res) => {
+router.post('/search', async (req, res) => {
     try {
         const {firstName, lastName} = req.body;
         let finalAuthors = [];
