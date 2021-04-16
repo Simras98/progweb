@@ -1,0 +1,564 @@
+{
+	"info": {
+		"_postman_id": "68ac6eaa-8108-46b4-9ba5-cba38426f181",
+		"name": "ProgWeb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authors",
+			"item": [
+				{
+					"name": "New author",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Simon",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Weber",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:3000/authors/new",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get authors",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "https://localhost:3000/authors/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get author with id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:3000/authors/607a0784550600f8ce1cd9b1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"607a0784550600f8ce1cd9b1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete author",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "https://localhost:3000/authors/607a0784550600f8ce1cd9b1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"607a0784550600f8ce1cd9b1"
+							]
+						},
+						"description": "Delete author"
+					},
+					"response": []
+				},
+				{
+					"name": "Update author",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 58657de3a4805519e5c2388ec1fd37f0d9d72eec"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Simon",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:3000/authors/607a0784550600f8ce1cd9b1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"607a0784550600f8ce1cd9b1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search authors",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Simon",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Weber",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:3000/authors/search",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"authors",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "New book",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "year",
+									"value": "1999",
+									"type": "text"
+								},
+								{
+									"key": "pageCount",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "a",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:3000/books/new",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get books",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "https://localhost:3000/books/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get book with id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:3000/books/607a0ab089488bf93ffe85e3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"607a0ab089488bf93ffe85e3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete book",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}"
+							}
+						],
+						"url": {
+							"raw": "https://localhost:3000/books/607a0ab089488bf93ffe85e3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"607a0ab089488bf93ffe85e3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update book",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 58657de3a4805519e5c2388ec1fd37f0d9d72eec"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "thriller",
+									"type": "text"
+								},
+								{
+									"key": "year",
+									"value": "1999",
+									"type": "text"
+								},
+								{
+									"key": "filterYear",
+									"value": "after",
+									"type": "text"
+								},
+								{
+									"key": "pageCount",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "filterPageCount",
+									"value": "after",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "id",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:3000/books/607a0ab089488bf93ffe85e3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"607a0ab089488bf93ffe85e3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search books",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{accessToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "thriller",
+									"type": "text"
+								},
+								{
+									"key": "year",
+									"value": "1999",
+									"type": "text"
+								},
+								{
+									"key": "filterYear",
+									"value": "after",
+									"type": "text"
+								},
+								{
+									"key": "pageCount",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "filterPageCount",
+									"value": "after",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "id",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://localhost:3000/books/search",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"books",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Generate token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"pm.globals.set(\"accessToken\", \"Bearer \" + jsonData.accessToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YXBwbGljYXRpb246c2VjcmV0"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:3000/oauth/token",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "Authorization",
+			"value": "Authorization"
+		}
+	]
+}
